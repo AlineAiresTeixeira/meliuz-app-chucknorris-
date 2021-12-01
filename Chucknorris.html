@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <title>Chucknorris</title>
+  <style>*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Verdana';
+  }
+  
+
+  .loader{
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    height: 70vh;
+    /* background-image: url(./assets/loader.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; */
+  }
+  
+  .home-component{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+
+  }
+  
+  
+  .tituloContainer {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;  
+    
+  }
+
+  .titulo {
+    text-align: center;
+    font-size: 4em;
+    margin: auto;
+  }
+  
+  
+  nav .logo {
+    height: 150px;
+    width: right;
+    margin: 2%;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 30px 15px;
+    border-right: 5px solid rgb(19, 18, 18);
+
+}
+  
+
+
+  footer{
+   
+    text-align: center;
+    width: 100%;
+    background-color: #eee;
+    position: fixed;
+    left: 0;
+    bottom:0; 
+    border-radius: 15px 15px;
+    border: 1px black solid;  
+} 
+
+nav {
+  border: 2px black solid;  
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
+  background-color: #eee;
+
+}
+
+.home-pesquisa {
+
+  padding: 50px;
+  display: flex;
+  flex-wrap: pre;
+  align-content: center; 
+
+}
+
+
+.jokes{
+  
+  padding: 50px;  
+  border: 2px black solid;  
+  margin: 50px;
+  border-radius: 15px;
+  background-color: #eee;
+}
+
+.chakra-select__wrapper {
+
+  padding: 20px;
+
+
+  
+
+}
+
+.chakra-form-control{
+
+  padding:5px;  
+  margin-top: 200px;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvaW5kZXguY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksVUFBVTtJQUNWLFNBQVM7SUFDVCxzQkFBc0I7RUFDeEI7OztFQUdBO0lBQ0UsYUFBYTtJQUNiLHdCQUF3QjtJQUN4QixtQkFBbUI7SUFDbkIsWUFBWTtJQUNaOzs7NkJBR3lCO0VBQzNCOztFQUVBO0lBQ0Usa0JBQWtCO0lBQ2xCLFVBQVU7SUFDVixZQUFZOztFQUVkOzs7RUFHQTtJQUNFLFlBQVk7SUFDWixhQUFhO0lBQ2IsZUFBZTtJQUNmLHFCQUFxQjs7RUFFdkI7O0VBRUE7SUFDRSxrQkFBa0I7SUFDbEIsY0FBYztJQUNkLFlBQVk7RUFDZDs7O0VBR0E7SUFDRSxhQUFhO0lBQ2IsWUFBWTtJQUNaLFVBQVU7SUFDVix1QkFBdUI7SUFDdkIsWUFBWTtJQUNaLHdCQUF3QjtJQUN4Qix1Q0FBdUM7O0FBRTNDOzs7O0VBSUU7O0lBRUUsa0JBQWtCO0lBQ2xCLFdBQVc7SUFDWCxzQkFBc0I7SUFDdEIsZUFBZTtJQUNmLE9BQU87SUFDUCxRQUFRO0lBQ1Isd0JBQXdCO0lBQ3hCLHVCQUF1QjtBQUMzQjs7QUFFQTtFQUNFLHVCQUF1QjtFQUN2QixhQUFhO0VBQ2IsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixzQkFBc0I7O0FBRXhCOztBQUVBOztFQUVFLGFBQWE7RUFDYixhQUFhO0VBQ2IsY0FBYztFQUNkLHFCQUFxQjs7QUFFdkI7OztBQUdBOztFQUVFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixzQkFBc0I7QUFDeEI7O0FBRUE7O0VBRUUsYUFBYTs7Ozs7QUFLZjs7QUFFQTs7RUFFRSxXQUFXO0VBQ1gsaUJBQWlCO0FBQ25CIiwic291cmNlc0NvbnRlbnQiOlsiKntcbiAgICBwYWRkaW5nOiAwO1xuICAgIG1hcmdpbjogMDtcbiAgICBmb250LWZhbWlseTogJ1ZlcmRhbmEnO1xuICB9XG4gIFxuXG4gIC5sb2FkZXJ7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6ICBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBoZWlnaHQ6IDcwdmg7XG4gICAgLyogYmFja2dyb3VuZC1pbWFnZTogdXJsKC4vYXNzZXRzL2xvYWRlci5naWYpO1xuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcbiAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyOyAqL1xuICB9XG4gIFxuICAuaG9tZS1jb21wb25lbnR7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIHdpZHRoOiA4MCU7XG4gICAgbWFyZ2luOiBhdXRvO1xuXG4gIH1cbiAgXG4gIFxuICAudGl0dWxvQ29udGFpbmVyIHtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LXdyYXA6IHdyYXA7XG4gICAgYWxpZ24tY29udGVudDogY2VudGVyOyAgXG4gICAgXG4gIH1cblxuICAudGl0dWxvIHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgZm9udC1zaXplOiA0ZW07XG4gICAgbWFyZ2luOiBhdXRvO1xuICB9XG4gIFxuICBcbiAgbmF2IC5sb2dvIHtcbiAgICBoZWlnaHQ6IDE1MHB4O1xuICAgIHdpZHRoOiByaWdodDtcbiAgICBtYXJnaW46IDIlO1xuICAgIGJvcmRlcjogMnB4IHNvbGlkIGJsYWNrO1xuICAgIHBhZGRpbmc6IDVweDtcbiAgICBib3JkZXItcmFkaXVzOiAzMHB4IDE1cHg7XG4gICAgYm9yZGVyLXJpZ2h0OiA1cHggc29saWQgcmdiKDE5LCAxOCwgMTgpO1xuXG59XG4gIFxuXG5cbiAgZm9vdGVye1xuICAgXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNlZWU7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIGxlZnQ6IDA7XG4gICAgYm90dG9tOjA7IFxuICAgIGJvcmRlci1yYWRpdXM6IDE1cHggMTVweDtcbiAgICBib3JkZXI6IDFweCBibGFjayBzb2xpZDsgIFxufSBcblxubmF2IHtcbiAgYm9yZGVyOiAycHggYmxhY2sgc29saWQ7ICBcbiAgcGFkZGluZzogMTBweDtcbiAgbWFyZ2luOiAxMHB4O1xuICBib3JkZXItcmFkaXVzOiAxNXB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWVlO1xuXG59XG5cbi5ob21lLXBlc3F1aXNhIHtcblxuICBwYWRkaW5nOiA1MHB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHByZTtcbiAgYWxpZ24tY29udGVudDogY2VudGVyOyBcblxufVxuXG5cbi5qb2tlc3tcbiAgXG4gIHBhZGRpbmc6IDUwcHg7ICBcbiAgYm9yZGVyOiAycHggYmxhY2sgc29saWQ7ICBcbiAgbWFyZ2luOiA1MHB4O1xuICBib3JkZXItcmFkaXVzOiAxNXB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWVlO1xufVxuXG4uY2hha3JhLXNlbGVjdF9fd3JhcHBlciB7XG5cbiAgcGFkZGluZzogMjBweDtcblxuXG4gIFxuXG59XG5cbi5jaGFrcmEtZm9ybS1jb250cm9se1xuXG4gIHBhZGRpbmc6NXB4OyAgXG4gIG1hcmdpbi10b3A6IDIwMHB4O1xufSJdLCJzb3VyY2VSb290IjoiIn0= */</style><style data-emotion="css" data-s="">.css-tflc3m{max-width:container.xl;}</style><style data-emotion="css" data-s="">.css-azatax{display:grid;grid-gap:10px;grid-template-columns:repeat(5, 1fr);}</style><style data-emotion="css" data-s="">.css-1f69nz6{grid-column-start:1;}</style><style data-emotion="css" data-s="">.css-1j8x02m{grid-column-start:2;grid-column-end:8;}</style><style data-emotion="css" data-s="">.css-vjgcd9{grid-column-start:9;grid-column-end:12;height:150px;}</style><style data-emotion="css" data-s="">.css-0{}</style><style data-emotion="css" data-s="">.css-uvho5g{display:block;text-align:start;}</style><style data-emotion="css" data-s="">.css-42b2qy{width:100%;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;position:relative;}</style><style data-emotion="css" data-s="">.css-1ik61og{-webkit-padding-end:2rem;padding-inline-end:2rem;}</style><style data-emotion="css" data-s="">.css-1ik61og:focus,.css-1ik61og[data-focus]{z-index:unset;}</style><style data-emotion="css" data-s="">.css-162mkon{position:absolute;display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;pointer-events:none;top:50%;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);}</style><style data-emotion="css" data-s="">.css-5c2176{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;position:relative;white-space:nowrap;vertical-align:middle;outline:2px solid transparent;outline-offset:2px;width:auto;}</style><script charset="utf-8" src="./Chucknorris_files/main.2c0fb2179698814e085b.hot-update.js"></script><script charset="utf-8" src="./Chucknorris_files/main.7d0ed72b5fbc057b786d.hot-update.js"></script><script charset="utf-8" src="./Chucknorris_files/main.824ce4df0a8b4ebec0d3.hot-update.js"></script><script charset="utf-8" src="./Chucknorris_files/main.a45a9e9aa3d805bc3450.hot-update.js"></script><script charset="utf-8" src="./Chucknorris_files/main.ef56fa02ef49e87ac1b4.hot-update.js"></script><script charset="utf-8" src="./Chucknorris_files/main.b9a27a525158d79bd3a5.hot-update.js"></script><script charset="utf-8" src="./Chucknorris_files/main.97f7e6f9c01dd6aa35e9.hot-update.js"></script><script charset="utf-8" src="./Chucknorris_files/main.514f80ef3b2740f4dab5.hot-update.js"></script><script charset="utf-8" src="./Chucknorris_files/main.339a2b2322cc304808b4.hot-update.js"></script></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><nav><div class="chakra-container css-tflc3m"><div class="css-azatax"><div class="css-1f69nz6"><a href="http://localhost:3000/"><img src="./Chucknorris_files/logo.214742b6.jpeg" class="logo" alt="Logo"></a></div><div class="css-1j8x02m"><div class="tituloContainer"><h1 class="titulo">Joke</h1></div></div><div class="css-vjgcd9"><div role="group" class="chakra-form-control css-0"><label id="field-7206653012-2-label" for="field-7206653012-2" class="chakra-form__label css-uvho5g">Categoria de sua piada</label><div class="chakra-select__wrapper css-42b2qy"><select id="field-7206653012-2" class="chakra-select css-1ik61og"><option value="animal"> animal </option><option value="career"> career </option><option value="celebrity"> celebrity </option><option value="dev"> dev </option><option value="explicit"> explicit </option><option value="fashion"> fashion </option><option value="food"> food </option><option value="history"> history </option><option value="money"> money </option><option value="movie"> movie </option><option value="music"> music </option><option value="political"> political </option><option value="religion"> religion </option><option value="science"> science </option><option value="sport"> sport </option><option value="travel"> travel </option></select><div class="chakra-select__icon-wrapper css-162mkon"><svg viewBox="0 0 24 24" role="presentation" class="chakra-select__icon" focusable="false" aria-hidden="true" style="width: 1em; height: 1em; color: currentcolor;"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></div></div></div></div></div></div></nav><div class="home-component"><div class="home-pesquisa"><form><label class="chakra-form__label css-uvho5g">Pesquise sua piada</label><input type="text" class="chakra-input css-0"><button type="submit" class="chakra-button css-5c2176">Pesquisar</button></form></div><div class="jokes"><img src="./Chucknorris_files/chuck-norris.png" alt="Chuck Norris once stayed at the Hotel California and was allowed to check out...and leave."><h3>Chuck Norris once stayed at the Hotel California and was allowed to check out...and leave.</h3></div></div><footer><h4>Footer</h4></footer></div>
+  <script src="./Chucknorris_files/bundle.js"></script><script src="./Chucknorris_files/vendors_main.chunk.js"></script><script src="./Chucknorris_files/main.chunk.js"></script><div id="chakra-toast-portal"><ul id="chakra-toast-manager-top" style="position: fixed; z-index: 5500; pointer-events: none; display: flex; flex-direction: column; margin: 0px auto; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px); left: env(safe-area-inset-left, 0px);"></ul><ul id="chakra-toast-manager-top-left" style="position: fixed; z-index: 5500; pointer-events: none; display: flex; flex-direction: column; top: env(safe-area-inset-top, 0px); left: env(safe-area-inset-left, 0px);"></ul><ul id="chakra-toast-manager-top-right" style="position: fixed; z-index: 5500; pointer-events: none; display: flex; flex-direction: column; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px);"></ul><ul id="chakra-toast-manager-bottom-left" style="position: fixed; z-index: 5500; pointer-events: none; display: flex; flex-direction: column; bottom: env(safe-area-inset-bottom, 0px); left: env(safe-area-inset-left, 0px);"></ul><ul id="chakra-toast-manager-bottom" style="position: fixed; z-index: 5500; pointer-events: none; display: flex; flex-direction: column; margin: 0px auto; bottom: env(safe-area-inset-bottom, 0px); right: env(safe-area-inset-right, 0px); left: env(safe-area-inset-left, 0px);"></ul><ul id="chakra-toast-manager-bottom-right" style="position: fixed; z-index: 5500; pointer-events: none; display: flex; flex-direction: column; bottom: env(safe-area-inset-bottom, 0px); right: env(safe-area-inset-right, 0px);"></ul></div>
+</body></html>
